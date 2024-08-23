@@ -2,7 +2,7 @@
 import { StyledArticle } from "./styles";
 import Product from "../ProductList/Product";
 
-const FilteredList = ({ products, searchText }) => {
+const FilteredList = ({ products, searchText, handleOnClick }) => {
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -20,6 +20,8 @@ const FilteredList = ({ products, searchText }) => {
                 price={price}
                 rating={rating.rate}
                 key={id}
+                id={id}
+                handleOnClick={() => handleOnClick(product)}
               />
             );
           })

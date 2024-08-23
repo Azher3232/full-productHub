@@ -12,6 +12,11 @@ const ProductList = ({ url }) => {
     setSearchText(text);
   };
 
+  const handleAddToCart = (product) => {
+    // dispatch(addToCart(product));
+    console.log("ADD TO CART", product);
+  };
+
   const { response, loading, error } = useAxios(url);
 
   return (
@@ -20,7 +25,11 @@ const ProductList = ({ url }) => {
       {loading ? (
         <Loading />
       ) : !error ? (
-        <FilteredList products={response} searchText={searchText} />
+        <FilteredList
+          products={response}
+          searchText={searchText}
+          handleOnClick={handleAddToCart}
+        />
       ) : (
         <StyledH3 $isBold>
           An error has occurred! <em>{error.message}</em>{" "}

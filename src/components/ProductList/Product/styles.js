@@ -14,7 +14,7 @@ const StyledSection = styled.section`
 
 const ProductImage = styled.img`
   grid-column: 1/2;
-  grid-row: 1 / -1;
+  grid-row: 1 / 3;
   width: 60%;
   padding: 1rem 0;
   justify-self: center;
@@ -61,6 +61,23 @@ const DivIconContainer = styled.div`
   justify-content: center;
 `;
 
+const StyledButton = styled.button`
+  font-family: inherit;
+  font-size: 1.8rem;
+  background-color: #ee6c4d;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 60%;
+  cursor: pointer;
+  transition: ease-in-out 0.2s all;
+
+  &:hover {
+    background-color: #0077b6;
+  }
+`;
+
 export {
   StyledSection,
   ProductImage,
@@ -70,4 +87,5 @@ export {
   ProductPriceIcon,
   ProductRatingIcon,
   DivIconContainer,
+  StyledButton,
 };

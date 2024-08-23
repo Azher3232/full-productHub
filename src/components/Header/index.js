@@ -3,6 +3,8 @@ import {
   HeaderHeadingPrimary,
   HeaderUList,
   StyledLink,
+  ShoppingCartIcon,
+  CartBadge,
 } from "./styles";
 
 const Header = () => {
@@ -31,6 +33,10 @@ const Header = () => {
             <StyledLink to="/category/women's clothing">
               Women's Clothing
             </StyledLink>
+          </li>
+          <li>
+            <ShoppingCartIcon />
+            <CartBadge>0</CartBadge>
           </li>
         </HeaderUList>
       </nav>
