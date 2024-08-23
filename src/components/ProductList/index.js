@@ -1,4 +1,4 @@
-import "./styles.css";
+import { StyledH3 } from "./styles";
 import { useState } from "react";
 import useAxios from "../../hooks/useAxios";
 import Loading from "../Loading";
@@ -22,9 +22,9 @@ const ProductList = ({ url }) => {
       ) : !error ? (
         <FilteredList products={response} searchText={searchText} />
       ) : (
-        <h3>
+        <StyledH3 $isBold>
           An error has occurred! <em>{error.message}</em>{" "}
-        </h3>
+        </StyledH3>
       )}
     </main>
   );

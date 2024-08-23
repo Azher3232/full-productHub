@@ -1,21 +1,29 @@
-import "./styles.css";
-import { FaDollarSign, FaStar } from "react-icons/fa";
+import {
+  StyledSection,
+  ProductImage,
+  ProductTitle,
+  ProductDescription,
+  ProductDetails,
+  ProductPriceIcon,
+  ProductRatingIcon,
+  DivIconContainer,
+} from "./styles";
 
 const Product = ({ image, title, description, price, rating }) => {
   return (
-    <section className="grid-container">
-      <img src={image} className="product-image" />
-      <h4 className="product-title">{title}</h4>
-      <p className="product-description">{description}</p>
-      <div className="flex-container">
-        <FaDollarSign className="product-icon" />
-        <p className="product-price">{price}</p>
-      </div>
-      <div className="flex-container">
-        <FaStar className="product-icon" />
-        <p className="product-rating">{rating}</p>
-      </div>
-    </section>
+    <StyledSection>
+      <ProductImage src={image} />
+      <ProductTitle>{title}</ProductTitle>
+      <ProductDescription>{description}</ProductDescription>
+      <DivIconContainer>
+        <ProductPriceIcon />
+        <ProductDetails>{price}</ProductDetails>
+      </DivIconContainer>
+      <DivIconContainer>
+        <ProductRatingIcon />
+        <ProductDetails $rating={rating}>{rating}</ProductDetails>
+      </DivIconContainer>
+    </StyledSection>
   );
 };
 

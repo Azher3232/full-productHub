@@ -1,4 +1,4 @@
-import "./styles.css";
+import { InputSearch, SearchDivContainer } from "./styles";
 
 const SearchBox = ({ onSearchChange }) => {
   const handleInputChange = (e) => {
@@ -6,13 +6,13 @@ const SearchBox = ({ onSearchChange }) => {
   };
 
   return (
-    <div className="container search-container">
-      <input
+    <SearchDivContainer>
+      <InputSearch
         type="text"
         placeholder="Search by title"
         onChange={handleInputChange}
       />
-    </div>
+    </SearchDivContainer>
   );
 };
 

@@ -1,40 +1,40 @@
-import "./styles.css";
-import { Link } from "react-router-dom";
+import {
+  StyledHeader,
+  HeaderHeadingPrimary,
+  HeaderUList,
+  StyledLink,
+} from "./styles";
 
 const Header = () => {
   return (
-    <header>
-      <h1>ProductHub</h1>
+    <StyledHeader>
+      <HeaderHeadingPrimary>ProductHub</HeaderHeadingPrimary>
       <nav>
-        <ul>
+        <HeaderUList>
           <li>
-            <Link to="/" className="menu-item">
-              Home
-            </Link>
+            <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
-            <Link to="/category/electronics" className="menu-item">
+            <StyledLink to="/category/electronics" $isBlue>
               Electronics
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/category/jewelery" className="menu-item">
-              Jewelry
-            </Link>
+            <StyledLink to="/category/jewelery">Jewelry</StyledLink>
           </li>
           <li>
-            <Link to="/category/men's clothing" className="menu-item">
+            <StyledLink to="/category/men's clothing">
               Men's Clothing
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/category/women's clothing" className="menu-item">
+            <StyledLink to="/category/women's clothing">
               Women's Clothing
-            </Link>
+            </StyledLink>
           </li>
-        </ul>
+        </HeaderUList>
       </nav>
-    </header>
+    </StyledHeader>
   );
 };
 

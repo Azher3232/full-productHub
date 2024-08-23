@@ -1,4 +1,5 @@
-import "./styles.css";
+// import "./styles.css";
+import { StyledArticle } from "./styles";
 import Product from "../ProductList/Product";
 
 const FilteredList = ({ products, searchText }) => {
@@ -7,7 +8,7 @@ const FilteredList = ({ products, searchText }) => {
   );
 
   return (
-    <article className="products-container">
+    <StyledArticle>
       {filteredProducts !== null
         ? filteredProducts.map((product) => {
             const { image, title, description, price, rating, id } = product;
@@ -23,7 +24,7 @@ const FilteredList = ({ products, searchText }) => {
             );
           })
         : null}
-    </article>
+    </StyledArticle>
   );
 };
 
