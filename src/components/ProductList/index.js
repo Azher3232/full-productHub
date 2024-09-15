@@ -1,7 +1,7 @@
 import { StyledH3 } from "./styles";
 import { useState } from "react";
 import useAxios from "../../hooks/useAxios";
-import Loading from "../Loading";
+import Spinner from "../Spinner";
 import SearchBox from "../SearchBox";
 import FilteredList from "../FilteredList";
 
@@ -23,7 +23,7 @@ const ProductList = ({ url }) => {
     <main>
       <SearchBox onSearchChange={handleSearchChange} />
       {loading ? (
-        <Loading />
+        <Spinner />
       ) : !error ? (
         <FilteredList
           products={response}

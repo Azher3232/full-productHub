@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
 * {
   padding: 0;
   margin: 0;
@@ -26,3 +29,6 @@ body {
   padding: 0 3.2rem;
   margin: 0 auto;
 }
+`;
+
+export default GlobalStyle;
