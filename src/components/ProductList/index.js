@@ -1,9 +1,9 @@
 import { StyledH3 } from "./styles";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IDLE, LOADING, SUCCEEDED, FAILED } from "../../state/status";
+import { LOADING, FAILED } from "../../state/status";
 import { addToCart } from "../../state/cartSlice";
-import { fetchProducts } from "../../state/productsSlice";
+import { fetchProducts, resetStatus } from "../../state/productsSlice";
 import Spinner from "../Spinner";
 import SearchBox from "../SearchBox";
 import FilteredList from "../FilteredList";
@@ -16,8 +16,9 @@ const ProductList = ({ url }) => {
   const error = useSelector((state) => state.products.error);
 
   useEffect(() => {
-    status === IDLE && dispatch(fetchProducts(url));
-  });
+    dispatch(resetStatus());
+    dispatch(fetchProducts(url));
+  }, [dispatch, url]);
 
   const handleSearchChange = (text) => {
     setSearchText(text);
