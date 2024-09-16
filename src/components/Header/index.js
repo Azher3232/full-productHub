@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   StyledHeader,
   HeaderHeadingPrimary,
@@ -6,8 +8,16 @@ import {
   ShoppingCartIcon,
   CartBadge,
 } from "./styles";
+import Cart from "../Cart";
 
 const Header = () => {
+  const [isCartOpen, setCartOpen] = useState(false);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const toggleCart = () => {
+    setCartOpen((prev) => !prev);
+  };
+
   return (
     <StyledHeader>
       <HeaderHeadingPrimary>ProductHub</HeaderHeadingPrimary>
@@ -35,11 +45,12 @@ const Header = () => {
             </StyledLink>
           </li>
           <li>
-            <ShoppingCartIcon />
-            <CartBadge>0</CartBadge>
+            <ShoppingCartIcon onClick={toggleCart} />
+            <CartBadge>{totalQuantity}</CartBadge>
           </li>
         </HeaderUList>
       </nav>
+      <Cart isOpen={isCartOpen} toggleCart={toggleCart} />
     </StyledHeader>
   );
 };
