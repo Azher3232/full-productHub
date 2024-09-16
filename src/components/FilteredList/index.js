@@ -1,4 +1,3 @@
-// import "./styles.css";
 import { StyledArticle } from "./styles";
 import Product from "../ProductList/Product";
 
