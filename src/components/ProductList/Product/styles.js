@@ -29,6 +29,11 @@ const ProductTitle = styled.h4`
   padding-top: 0.5rem;
   letter-spacing: 0.1rem;
   color: #803d3b;
+  text-overflow: ellipsis;
+
+  @media (max-width: 75rem) {
+    font-size: 1.4rem;
+  }
 `;
 
 const ProductDescription = styled.p`
@@ -36,6 +41,11 @@ const ProductDescription = styled.p`
   font-size: 1.6rem;
   grid-column: 2/-1;
   line-height: 2rem;
+  text-overflow: ellipsis;
+
+  @media (max-width: 75rem) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ProductDetails = styled.p`
@@ -43,16 +53,28 @@ const ProductDetails = styled.p`
   font-weight: 600;
   color: ${(props) => (props.$rating > 4.4 ? "#008170" : "")};
   padding-left: ${(props) => (props.$rating ? "0.5rem" : "")};
+
+  @media (max-width: 75rem) {
+    font-size: 2rem;
+  }
 `;
 
 const ProductPriceIcon = styled(FaDollarSign)`
   color: #a34343;
   font-size: 2.6rem;
+
+  @media (max-width: 75rem) {
+    font-size: 2rem;
+  }
 `;
 
 const ProductRatingIcon = styled(FaStar)`
   color: #a34343;
   font-size: 2.6rem;
+
+  @media (max-width: 75rem) {
+    font-size: 2rem;
+  }
 `;
 
 const DivIconContainer = styled.div`
@@ -75,6 +97,14 @@ const StyledButton = styled.button`
 
   &:hover {
     background-color: #ff8c00;
+  }
+
+  @media (max-width: 75rem) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 62rem) {
+    font-size: 1.2rem;
   }
 `;
 
