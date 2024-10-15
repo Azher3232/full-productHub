@@ -1,19 +1,20 @@
-import { render } from "@testing-library/react";
 import React from "react";
-import App from "../../App";
+import { render } from "@testing-library/react";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import store from "../../app/store";
+import App from "../../app";
 
-test("renders App component in root element", () => {
-  const root = document.createElement("div");
-  root.id = "root";
-  document.body.appendChild(root);
+describe("App Component", () => {
+  test("renders App component correctly", () => {
+    const { getByText } = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    );
 
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-    { container: root }
-  );
-
-  expect(root.querySelector("div")).toBeInTheDocument();
+    expect(getByText(/ProductHub/i)).toBeInTheDocument();
+  });
 });

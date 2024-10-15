@@ -17,7 +17,7 @@ const FilteredList = ({ products, searchText, handleOnClick }) => {
                 title={title}
                 description={description}
                 price={price}
-                rating={rating.rate}
+                rating={rating ? rating.rate : 0}
                 key={id}
                 id={id}
                 handleOnClick={() => handleOnClick(product)}

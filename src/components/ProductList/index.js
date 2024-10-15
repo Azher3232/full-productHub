@@ -36,7 +36,7 @@ const ProductList = ({ url }) => {
         <Spinner />
       ) : status === FAILED ? (
         <StyledH3 $isBold>
-          An error has occurred! <em>{error}</em>{" "}
+          An error has occurred! <em>{error}</em>
         </StyledH3>
       ) : (
         <FilteredList
