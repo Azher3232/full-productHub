@@ -1,13 +1,13 @@
-import "./styles.css";
+import { StyledArticle } from "./styles";
 import Product from "../ProductList/Product";
 
-const FilteredList = ({ products, searchText }) => {
+const FilteredList = ({ products, searchText, handleOnClick }) => {
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
-    <article className="products-container">
+    <StyledArticle>
       {filteredProducts !== null
         ? filteredProducts.map((product) => {
             const { image, title, description, price, rating, id } = product;
@@ -17,13 +17,15 @@ const FilteredList = ({ products, searchText }) => {
                 title={title}
                 description={description}
                 price={price}
-                rating={rating.rate}
+                rating={rating ? rating.rate : 0}
                 key={id}
+                id={id}
+                handleOnClick={() => handleOnClick(product)}
               />
             );
           })
         : null}
-    </article>
+    </StyledArticle>
   );
 };
 

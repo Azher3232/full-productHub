@@ -1,40 +1,57 @@
-import "./styles.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import {
+  StyledHeader,
+  HeaderHeadingPrimary,
+  HeaderUList,
+  StyledLink,
+  ShoppingCartIcon,
+  CartBadge,
+} from "./styles";
+import Cart from "../Cart";
 
 const Header = () => {
+  const [isCartOpen, setCartOpen] = useState(false);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const toggleCart = () => {
+    setCartOpen((prev) => !prev);
+  };
+
   return (
-    <header>
-      <h1>ProductHub</h1>
+    <StyledHeader>
+      <HeaderHeadingPrimary>ProductHub</HeaderHeadingPrimary>
       <nav>
-        <ul>
+        <HeaderUList>
           <li>
-            <Link to="/" className="menu-item">
-              Home
-            </Link>
+            <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
-            <Link to="/category/electronics" className="menu-item">
+            <StyledLink to="/category/electronics" $isBlue>
               Electronics
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/category/jewelery" className="menu-item">
-              Jewelry
-            </Link>
+            <StyledLink to="/category/jewelery">Jewelry</StyledLink>
           </li>
           <li>
-            <Link to="/category/men's clothing" className="menu-item">
+            <StyledLink to="/category/men's clothing">
               Men's Clothing
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/category/women's clothing" className="menu-item">
+            <StyledLink to="/category/women's clothing">
               Women's Clothing
-            </Link>
+            </StyledLink>
           </li>
-        </ul>
+          <li>
+            <ShoppingCartIcon onClick={toggleCart} />
+            <CartBadge>{totalQuantity}</CartBadge>
+          </li>
+        </HeaderUList>
       </nav>
-    </header>
+      <Cart isOpen={isCartOpen} toggleCart={toggleCart} />
+    </StyledHeader>
   );
 };
 

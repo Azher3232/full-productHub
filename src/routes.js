@@ -1,11 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 
-const App = () => {
+const AppRouter = () => {
   return (
     <>
-      <Header />
       <Routes>
         <Route
           exact
@@ -41,4 +39,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AppRouter;
