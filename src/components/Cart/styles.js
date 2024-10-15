@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
 const CartContainer = styled.div`
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 9rem;
-  width: 400px;
+  width: 20%;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
-  z-index: 1000;
+  height: calc(100% - 25rem);
   transform: translateX(${(props) => (props.$isOpen ? "0" : "100%")});
+  overflow-y: scroll;
 
   h2 {
     text-align: center;
@@ -21,6 +22,22 @@ const CartContainer = styled.div`
     text-align: center;
     padding-top: 1.5rem;
     font-size: 1.4rem;
+  }
+
+  @media (max-width: 75rem) {
+    width: 30%;
+  }
+
+  @media (max-width: 62rem) {
+    width: 35%;
+  }
+
+  @media (max-width: 53rem) {
+    width: 50%;
+  }
+
+  @media (max-width: 37rem) {
+    width: 65%;
   }
 `;
 
@@ -40,12 +57,20 @@ const ItemTitle = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 62rem) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ItemDetails = styled.span`
   font-size: 1.4rem;
   white-space: nowrap;
   margin-right: 20px;
+
+  @media (max-width: 62rem) {
+    font-size: 1.2rem;
+  }
 `;
 
 const RemoveButton = styled.button`
@@ -60,6 +85,11 @@ const RemoveButton = styled.button`
   &:hover {
     background-color: #cc0000;
   }
+
+  @media (max-width: 62rem) {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
 `;
 
 const TotalSection = styled.div`
@@ -71,6 +101,10 @@ const TotalSection = styled.div`
   h3 {
     font-size: 1.8rem;
     margin-bottom: 20px;
+
+    @media (max-width: 62rem) {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -87,6 +121,11 @@ const ClearButton = styled.button`
   &:hover {
     background-color: #e5533d;
   }
+
+  @media (max-width: 62rem) {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
 `;
 
 const BuyButton = styled.button`
@@ -100,6 +139,11 @@ const BuyButton = styled.button`
 
   &:hover {
     background-color: #28a428;
+  }
+
+  @media (max-width: 62rem) {
+    font-size: 1rem;
+    padding: 8px 18px;
   }
 `;
 
